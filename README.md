@@ -29,7 +29,13 @@ Below is example where the component is being declared as a child of an Angular 
      </rms-webcomponent-template>
 ````
 
-In order to use it, simple copy this template. The node modules might have to be updated!
+### Renaming to your component
+Note this template includes placeholders to be replaced with your component name, as follows:
+* Change all filenames from rms-webcomponent-template.*.* to my-webcomponent-name.*.*
+* Change all instances of rms-webcomponent-template to my-webcomponent-name
+* Change all instances of RmsWebcomponentTemplate to MyWebcomponentName
+
+Note that the package.json dependencies might have to be updated to their latest versions.
 
 # Last but not least
 ````html
