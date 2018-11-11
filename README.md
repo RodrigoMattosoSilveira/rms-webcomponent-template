@@ -19,7 +19,7 @@ none
 
 ### Development
 
-### Usage
+### Component Usage
 Below is example where the component is being declared as a child of an Angular component, with its attribute values being set at the Angular's component controller.
 
 ````html
@@ -29,10 +29,11 @@ Below is example where the component is being declared as a child of an Angular 
      </rms-webcomponent-template>
 ````
 
-### Renaming to your component
+### Template usage
 Note this template includes placeholders to be replaced with your component name, as follows:
 * Change all filenames from rms-webcomponent-template.*.* to my-webcomponent-name.*.*
 * Change all instances of rms-webcomponent-template to my-webcomponent-name
+* Capitalize the references to my-webcomponent-name in my-webcomponent-name.test.js
 * Change all instances of RmsWebcomponentTemplate to MyWebcomponentName
 
 Note that the package.json dependencies might have to be updated to their latest versions.
