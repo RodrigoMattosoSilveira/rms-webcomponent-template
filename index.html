@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>rms-webcomponent-template demos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script nomodule src="./node_modules/browser-es-module-loader/dist/babel-browser-build.js"></script>
+  <script nomodule src="./node_modules/browser-es-module-loader/dist/browser-es-module-loader.js"></script>
+
+  <script src="./dist/rms-webcomponent-template.js" type="module"></script>
+  <style>
+    body {
+      background-color: #eee;
+      padding: 24px;
+    }
+
+    rms-webcomponent-template {
+      margin: 8px;
+    }
+
+    rms-webcomponent-template.blue {
+      --rms-webcomponent-template-background-color: #03A9F4;
+    }
+  </style>
+</head>
+<body>
+  <rms-webcomponent-template></rms-webcomponent-template>
+
+  <rms-webcomponent-template chartType="Pickle"></rms-webcomponent-template>
+
+  <rms-webcomponent-template>Slot content</rms-webcomponent-template>
+
+  <rms-webcomponent-template class="blue"></rms-webcomponent-template>
+</body>
+</html>
