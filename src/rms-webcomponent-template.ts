@@ -87,6 +87,7 @@ export class RmsWebcomponentTemplate extends HTMLElement {
 	private get template(): TemplateResult {
 
 		return html`
+			${this.styles}
 			<div class="content">
 				Welcome to &lt;hello-world&gt;
 				<ul>

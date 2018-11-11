@@ -25,15 +25,14 @@
 // import 'karma-fixture';
 import '@webcomponents/webcomponentsjs/webcomponents-lite';
 
-import { RmsSparklineBoxplot } from '../src/rms-webcomponent-template';
+import { RmsWebComponentTemplate } from '../src/rms-webcomponent-template';
 
 describe('<rms-webcomponent-template>', () => {
 	let component;
 	let fixturePath = 'rms-webcomponent-template.fixture.html';
 	const FIXTURES = {
 		DEFAULT: 0,
-		CANVAS: 1,
-		SVG: 2
+		NAME: 1
 	};
 	let divEl;
 	let canvalEl;
@@ -50,25 +49,38 @@ describe('<rms-webcomponent-template>', () => {
 			beforeEach(() => {
 				component = fixture.load(fixturePath)[FIXTURES.DEFAULT];
 			});
-			describe('children', () => {
+			describe('it has', () => {
 
-				it(' has correct tag name ', () => {
-					expect(component.tagName).to.equal('rms-webcomponent-template');
+				it(' the correct tag name ', () => {
+					expect(component.tagName).to.equal('RMS-WEBCOMPONENT-TEMPLATE');
 				});
 
-				it(' has 0 children', () => {
-					expect(component.shadowRoot.children.length).equal(0);
+				it('2 children', () => {
+					expect(component.shadowRoot.children.length).equal(2);
+				});
+
+				it(' first is style', () => {
+					expect(component.shadowRoot.children[0].tagName).equal('STYLE');
+				});
+
+				it(' second is canvas', () => {
+					expect(component.shadowRoot.children[1].tagName).equal('DIV');
 				});
 			});
 
 		});
 		describe('with attributes', () => {
-			describe('when using the canvas drawing method', () => {
+			describe('when using the NAME fixture', () => {
 				beforeEach(() => {
-					component = fixture.load(fixturePath)[FIXTURES.CANVAS];
+					component = fixture.load(fixturePath)[FIXTURES.NAME];
 				});
-				describe('has 2 children', () => {
-					it(' are 2', () => {
+				describe('it has', () => {
+
+					it(' the correct tag name ', () => {
+						expect(component.tagName).to.equal('RMS-WEBCOMPONENT-TEMPLATE');
+					});
+
+					it('2 children', () => {
 						expect(component.shadowRoot.children.length).equal(2);
 					});
 
@@ -79,42 +91,6 @@ describe('<rms-webcomponent-template>', () => {
 					it(' second is canvas', () => {
 						expect(component.shadowRoot.children[1].tagName).equal('DIV');
 					});
-
-					describe(` the DIV element has`, () => {
-						beforeEach(() => {
-							divEl = component.shadowRoot.children[1]
-						});
-						it('  2 children', () => {
-							expect(divEl.children.length).equal(2);
-						});
-
-						describe(` the first is`, () => {
-							it(' a canvas', () => {
-								expect(divEl.children[0].tagName).equal('CANVAS');
-							});
-
-							it(' with width equal to 64', () => {
-								expect(divEl.children[0].width).equal(128);
-							});
-
-							it(' with height equal to 16', () => {
-								expect(divEl.children[0].height).equal(32);
-							});
-						});
-						describe(` the second is`, () => {
-							it(' is a SLOT', () => {
-								expect(divEl.children[1].tagName).equal('SLOT');
-							});
-						});
-					});
-				});
-			});
-			describe('when using the svg drawing method', () => {
-				beforeEach(() => {
-					component = fixture.load(fixturePath)[FIXTURES.SVG];
-				});
-				it(' are 2', () => {
-					expect(true).to.equal(true);
 				});
 			});
 		});
